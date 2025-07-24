@@ -108,11 +108,6 @@ Review the comprehensive results including:
 - Trading statistics (total trades, win rate)
 - Strategy-specific parameter summary
 
-### 5. Explore Advanced Features
-For ML Enhanced strategy:
-- **Show Live ML Demo**: Real-time price prediction analysis
-- **Show Sentiment Analysis**: Live market sentiment from news sources
-
 ## Strategy Implementation
 
 All strategies are implemented as classes inheriting from `backtrader.Strategy` with comprehensive logging and trade tracking. Each strategy includes:
@@ -138,12 +133,6 @@ The platform includes advanced ML capabilities for sophisticated trading analysi
 - **Dynamic Adaptation**: Learns from market patterns and adjusts parameters
 - **Ensemble Voting**: Weighs ML predictions against multiple technical indicators
 
-### Live ML Demo
-- **Interactive Analysis**: Real-time ML prediction demonstration
-- **Visual Comparisons**: ML signals vs traditional technical indicators
-- **Pattern Recognition**: Momentum, trend, and volatility analysis
-- **Performance Metrics**: Confidence scores and prediction accuracy
-
 ## Natural Language Processing Features
 
 The platform includes comprehensive NLP capabilities for sentiment-driven trading analysis:
@@ -159,12 +148,6 @@ The platform includes comprehensive NLP capabilities for sentiment-driven tradin
 - **11 Sentiment Features**: Score, confidence, moving averages, volatility, momentum, correlation indicators
 - **Dynamic Weighting**: Confidence-based sentiment incorporation
 - **Multi-timeframe Analysis**: Short-term news impact + historical sentiment trends
-
-### Sentiment Visualization
-- **Live Sentiment Dashboard**: Real-time sentiment scores with confidence metrics
-- **Source Attribution**: Track sentiment across different news sources
-- **Distribution Analysis**: Histogram of individual article sentiments
-- **Trading Implications**: Automated sentiment-based trading recommendations
 
 ## Architecture Overview
 
@@ -190,24 +173,6 @@ The platform includes comprehensive NLP capabilities for sentiment-driven tradin
    - Dynamic parameter configuration based on selected strategy
    - Comprehensive results display and visualization
 
-## Dependencies
-
-- **streamlit**: Web application framework
-- **backtrader**: Backtesting engine
-- **yfinance**: Financial data API
-- **pandas**: Data manipulation
-- **matplotlib**: Plotting and visualization
-- **numpy**: Numerical computations
-- **torch**: PyTorch deep learning framework for LSTM models
-- **scikit-learn**: Machine learning utilities and preprocessing
-- **plotly**: Interactive plotting (optional)
-- **requests**: HTTP requests for web scraping
-- **beautifulsoup4**: HTML parsing for news scraping
-- **feedparser**: RSS feed parsing for news aggregation
-- **vaderSentiment**: Sentiment analysis optimized for social media
-- **nltk**: Natural language processing toolkit
-- **textblob**: Simplified text processing and sentiment analysis
-
 ## Configuration Options
 
 ### Strategy Parameters
@@ -219,15 +184,6 @@ The platform includes comprehensive NLP capabilities for sentiment-driven tradin
 - **Mean Reversion**: Period (10-50), Threshold (0.01-0.10)
 - **ML Enhanced**: Prediction threshold (0.5-5.0%), Confidence threshold (0.3-0.9), Technical periods
 
-### General Parameters
-- **Starting Cash**: $1,000 - $10,000,000 (default: $100,000)
-- **Commission**: 0.0% - 1.0% (default: 0.1%)
-
-### Data Parameters
-- **Stock Ticker**: Any valid stock symbol
-- **Date Range**: Minimum 100 days of data required
-- **Data Source**: Yahoo Finance via yfinance
-
 ## Performance Metrics
 
 The application provides comprehensive performance analysis:
@@ -237,53 +193,3 @@ The application provides comprehensive performance analysis:
 - **Sharpe Ratio**: Risk-adjusted return measure
 - **Maximum Drawdown**: Largest peak-to-trough decline
 - **Trade Statistics**: Total trades, win rate, profit/loss per trade
-
-## Troubleshooting
-
-### Common Issues
-
-1. **"No data found for ticker"**
-   - Verify the stock ticker symbol is correct
-   - Ensure the date range includes trading days
-   - Check if the stock was trading during the selected period
-
-2. **"Plot generation failed"**
-   - The backtest results are still valid
-   - This typically occurs with certain data configurations
-   - Try adjusting the date range or ticker symbol
-
-3. **Slow performance**
-   - Reduce the date range for faster processing
-   - Use more recent data (last 2-3 years)
-   - Ensure stable internet connection for data fetching
-
-## Development
-
-### Extending the Application
-
-The modular design makes it easy to extend:
-
-1. **Add new strategies**: Create new classes inheriting from `bt.Strategy`
-2. **Add new analyzers**: Extend the `Backtester` class with additional metrics
-3. **Enhance UI**: Modify the `StreamlitApp` class for new features
-4. **Add data sources**: Extend `DataHandler` to support other data providers
-
-### Code Quality Features
-
-- Comprehensive error handling
-- Detailed logging and user feedback
-- Input validation and constraints
-- Session state management for better UX
-- Responsive design with progress indicators
-
-## License
-
-This project is provided for educational purposes. Please ensure compliance with data provider terms of service when using financial data.
-
-## Contributing
-
-Feel free to submit issues, feature requests, or pull requests to improve the application.
-
----
-
-**Professional Algorithmic Trading Backtesting Platform** 
