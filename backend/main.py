@@ -19,7 +19,12 @@ app = FastAPI(title="IterAI Finance Trading Platform API")
 
 # CORS middleware
 import os
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
+ALLOWED_ORIGINS_STR = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000")
+# Handle both comma-separated and single origin
+if ALLOWED_ORIGINS_STR == "*":
+    ALLOWED_ORIGINS = ["*"]
+else:
+    ALLOWED_ORIGINS = [origin.strip() for origin in ALLOWED_ORIGINS_STR.split(",") if origin.strip()]
 
 app.add_middleware(
     CORSMiddleware,
