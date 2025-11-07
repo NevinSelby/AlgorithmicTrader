@@ -22,14 +22,17 @@ import os
 ALLOWED_ORIGINS_STR = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000")
 # Handle both comma-separated and single origin
 if ALLOWED_ORIGINS_STR == "*":
+    # When using wildcard, cannot use allow_credentials=True
     ALLOWED_ORIGINS = ["*"]
+    ALLOW_CREDENTIALS = False
 else:
     ALLOWED_ORIGINS = [origin.strip() for origin in ALLOWED_ORIGINS_STR.split(",") if origin.strip()]
+    ALLOW_CREDENTIALS = True
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
-    allow_credentials=True,
+    allow_credentials=ALLOW_CREDENTIALS,
     allow_methods=["*"],
     allow_headers=["*"],
 )
