@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { Toaster } from 'react-hot-toast'
 import Link from 'next/link'
+import { api } from '../lib/api'
 
 // Dynamic imports to avoid SSR issues
 const PlotComponent = dynamic(() => import('./Chart'), {
@@ -74,7 +75,7 @@ export default function TradingPlatform() {
 
   const fetchNews = async () => {
     try {
-      const response = await fetch('/api/news')
+      const response = await fetch(api.url('news'))
       if (response.ok) {
         const data = await response.json()
         const formattedNews = data.news.slice(0, 6).map((item: any) => ({
@@ -103,7 +104,7 @@ export default function TradingPlatform() {
     
     setLoading(true)
     try {
-      const response = await fetch(`/api/stock/${stockSymbol}`)
+      const response = await fetch(api.url(`stock/${stockSymbol}`))
       if (!response.ok) {
         throw new Error('Failed to fetch stock data')
       }
@@ -125,7 +126,7 @@ export default function TradingPlatform() {
         .join(',')
       
       const chartResponse = await fetch(
-        `/api/stock/${stockSymbol}/chart?period=1y&indicators=${enabledIndicators}`
+        api.url(`stock/${stockSymbol}/chart?period=1y&indicators=${enabledIndicators}`)
       )
       if (!chartResponse.ok) {
         throw new Error('Failed to fetch chart data')

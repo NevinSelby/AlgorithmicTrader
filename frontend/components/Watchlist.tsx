@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { api } from '../lib/api'
 
 interface StockData {
   symbol: string
@@ -34,7 +35,7 @@ export default function Watchlist({ onSelectStock }: WatchlistProps = {}) {
     setLoading(true)
     try {
       const promises = symbols.map(symbol => 
-        fetch(`/api/stock/${symbol}`).then(res => res.ok ? res.json() : null)
+        fetch(api.url(`stock/${symbol}`)).then(res => res.ok ? res.json() : null)
       )
       const results = await Promise.all(promises)
       const validStocks = results.filter(Boolean)

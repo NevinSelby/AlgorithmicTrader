@@ -13,7 +13,7 @@ export default function MLPredictor({ symbol }: MLPredictorProps) {
   const generatePrediction = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`/api/ml/predict/${symbol}`)
+      const response = await fetch(api.url(`ml/predict/${symbol}`))
       if (response.ok) {
         const data = await response.json()
         setPrediction(data)

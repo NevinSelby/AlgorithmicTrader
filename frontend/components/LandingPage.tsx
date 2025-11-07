@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { api } from '../lib/api'
 
 interface NewsItem {
   title: string
@@ -35,7 +36,7 @@ export default function LandingPage({ onStartTrading, onShowNewsletter, onNaviga
 
   const fetchMarketOverview = async () => {
     try {
-      const response = await fetch('/api/market-overview')
+      const response = await fetch(api.url('market-overview'))
       if (response.ok) {
         const data = await response.json()
         setMarketIndices(data.overview || [])
@@ -48,7 +49,7 @@ export default function LandingPage({ onStartTrading, onShowNewsletter, onNaviga
   const fetchNews = async () => {
     setLoading(true)
     try {
-      const response = await fetch('/api/news')
+      const response = await fetch(api.url('news'))
       if (response.ok) {
         const data = await response.json()
         // Extract and format news
