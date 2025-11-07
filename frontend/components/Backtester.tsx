@@ -27,8 +27,8 @@ export default function Backtester({ symbol }: BacktesterProps) {
   const runBacktest = async () => {
     setLoading(true)
     try {
-      const response = await fetch(api.url(
-        `backtest/${symbol}?entry_condition=${encodeURIComponent(entryCondition)}&exit_condition=${encodeURIComponent(exitCondition)}&initial_capital=${initialCapital}`
+      const response = await fetch(
+        api.url(`backtest/${symbol}?entry_condition=${encodeURIComponent(entryCondition)}&exit_condition=${encodeURIComponent(exitCondition)}&initial_capital=${initialCapital}`)
       )
       if (response.ok) {
         const data = await response.json()
