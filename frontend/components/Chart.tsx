@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+// @ts-ignore - Plotly types issue
 import Plotly from 'plotly.js/dist/plotly'
 
 interface ChartProps {
